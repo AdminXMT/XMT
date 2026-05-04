@@ -207,8 +207,6 @@
 
       if (lines.length < 2) {
         tbody.innerHTML = '<tr><td colspan="3" class="empty">Aucune donnée trouvée dans le CSV.</td></tr>';
-        status.textContent = 'CSV chargé, mais vide.';
-        status.className = 'status';
         return;
       }
 
@@ -232,8 +230,6 @@
 
       if (rows.length === 0) {
         tbody.innerHTML = '<tr><td colspan="3" class="empty">Aucun pilote trouvé.</td></tr>';
-        status.textContent = 'CSV chargé, mais aucune ligne exploitable.';
-        status.className = 'status';
         return;
       }
 
@@ -252,11 +248,10 @@
         `;
         tbody.appendChild(tr);
       });
-      
+
     } catch (error) {
       tbody.innerHTML = '<tr><td colspan="3" class="empty">Impossible de charger les pilotes.</td></tr>';
-      status.textContent = 'Erreur : ' + error.message;
-      status.className = 'status error';
+  
       console.error(error);
     }
   }
