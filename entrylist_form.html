@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Entrylist XMT â€“ Formulaire</title>
+  <title>Entrylist XMT - Formulaire</title>
   <link rel="icon" type="image/png" href="xmt-logo.png" />
   <style>
     :root {
@@ -64,7 +64,7 @@
     }
 
 
-    /* â”€â”€ Layout â”€â”€ */
+    /* -- Layout -- */
     .container {
       max-width: 700px;
       margin: 0 auto;
@@ -126,7 +126,7 @@
       font-size: 0.95rem;
     }
 
-    /* â”€â”€ Form â”€â”€ */
+    /* -- Form -- */
     form {
       display: flex;
       flex-direction: column;
@@ -170,7 +170,7 @@
       transform: translateY(-1px);
     }
 
-    /* â”€â”€ Platform selector â”€â”€ */
+    /* -- Platform selector -- */
     .platform-selector {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -242,7 +242,7 @@
       color: #fff;
     }
 
-    /* â”€â”€ Field hints â”€â”€ */
+    /* -- Field hints -- */
     .field-hint {
       font-size: 0.78rem;
       margin-top: 4px;
@@ -251,7 +251,7 @@
     .field-hint.error { color: var(--error); display: block; }
     .field-hint.success { color: var(--success); display: block; }
 
-    /* â”€â”€ Actions â”€â”€ */
+    /* -- Actions -- */
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -297,7 +297,7 @@
     .status.success { color: var(--success); }
     .status.error { color: var(--error); }
 
-    /* â”€â”€ Animations â”€â”€ */
+    /* -- Animations -- */
     @keyframes gridDrift { from { background-position: 0 0, 0 0; } to { background-position: 58px 58px, 58px 58px; } }
     @keyframes speedLines { 0%,100% { opacity:.18; transform:translateX(-20%); } 50% { opacity:.46; transform:translateX(10%); } }
     @keyframes panelIn { from { opacity:0; transform:translateY(22px) scale(.98); } to { opacity:1; transform:translateY(0) scale(1); } }
@@ -308,12 +308,12 @@
 
  }
 
-    /* â”€â”€ Responsive PC â”€â”€ */
+    /* -- Responsive PC -- */
     @media (max-width: 700px) {
       .container { padding: 40px 16px 80px; }
     }
 
-    /* â”€â”€ Responsive Mobile â”€â”€ */
+    /* -- Responsive Mobile -- */
     @media (max-width: 480px) {
       .container { padding: 24px 12px 80px; }
 
@@ -343,7 +343,7 @@
 
     }
 
-    /* â•â• LOGO ENTRANCE â•â• */
+    /* == LOGO ENTRANCE == */
     .logo-img { animation: logoIn 0.9s cubic-bezier(.2,1.3,.4,1) 0.2s both; }
     @keyframes logoIn {
       0%   { opacity:0; transform:scale(0.2) rotate(-20deg); filter:brightness(12) drop-shadow(0 0 40px #fff); }
@@ -351,7 +351,7 @@
       100% { opacity:1; transform:scale(1)   rotate(0deg);  filter:drop-shadow(0 0 10px rgba(193,59,198,0.5)); }
     }
 
-    /* â•â• FLASH OVERLAY â•â• */
+    /* == FLASH OVERLAY == */
     #flashOverlay {
       position:fixed; inset:0; z-index:200; pointer-events:none;
       background:white;
@@ -381,7 +381,7 @@
       <img src="xmt-logo.png" alt="XMT" class="logo-img" style="height:56px;width:auto;mix-blend-mode:screen;filter:drop-shadow(0 0 10px rgba(193,59,198,0.5));margin-bottom:10px;display:block;" />
       <h1>Entrylist XMT</h1>
       <p class="subtitle">
-        Remplissez ce formulaire pour vous inscrire sur l'entrylist XMT et participer aux Ã©vÃ¨nements du serveur.
+        Remplissez ce formulaire pour vous inscrire sur l'entrylist XMT et participer aux &eacute;v&eacute;nements du serveur.
       </p>
 
       <form id="entryForm" novalidate>
@@ -393,7 +393,7 @@
             <div class="platform-option">
               <input type="radio" id="psn" name="platform" value="PSN" required />
               <label for="psn" class="platform-card">
-                <!-- Simple Icons â€“ PlayStation -->
+                <!-- Simple Icons - PlayStation -->
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M8.984 2.596v17.547l3.915 1.261V6.688c0-.69.304-1.151.794-.991.636.18.76.814.76 1.505v5.875c2.441 1.193 4.362-.002 4.362-3.152 0-3.237-1.126-4.675-4.438-5.827C13.07 3.65 10.648 2.912 8.984 2.596zm4.656 16.241 6.296-2.275c.715-.258.826-.625.246-.818-.586-.192-1.637-.139-2.357.123l-4.205 1.5V14.98l.24-.085s1.201-.42 2.913-.615c1.696-.18 3.785.03 5.437.661 1.848.601 2.04 1.472 1.576 2.072-.465.6-1.622 1.036-1.622 1.036l-8.544 3.107V18.86zM1.807 18.6c-1.9-.545-2.214-1.668-1.352-2.32.801-.586 2.16-1.052 2.16-1.052l5.615-2.013v2.313L4.205 17c-.705.271-.825.632-.239.826.586.195 1.637.15 2.343-.12L8.247 17v2.074c-.12.03-.256.044-.39.073-1.939.331-3.996.196-6.038-.479z"/>
                 </svg>
@@ -404,7 +404,7 @@
             <div class="platform-option">
               <input type="radio" id="xbox" name="platform" value="XBOX" />
               <label for="xbox" class="platform-card">
-                <!-- Simple Icons â€“ Xbox -->
+                <!-- Simple Icons - Xbox -->
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4.102 21.033C6.211 22.881 8.977 24 12 24c3.026 0 5.789-1.119 7.902-2.967 1.877-1.912-4.316-8.709-7.902-11.417-3.582 2.708-9.779 9.505-7.898 11.417zm11.16-14.406c2.5 2.961 7.484 10.313 6.076 12.912C23.002 17.48 24 14.861 24 12.004c0-3.34-1.365-6.362-3.57-8.536 0 0-.027-.022-.082-.042-.063-.022-.152-.045-.281-.045-.592 0-1.985.434-4.805 3.246zM3.654 3.426c-.057.02-.082.041-.086.042C1.365 5.642 0 8.664 0 12.004c0 2.854.998 5.473 2.661 7.533-1.401-2.605 3.579-9.951 6.08-12.91-2.82-2.813-4.216-3.245-4.806-3.245-.131 0-.223.021-.281.046v-.002zM12 3.551S9.055 1.828 6.755 1.746c-.903-.033-1.454.295-1.521.339C7.379.646 9.659 0 11.984 0H12c2.334 0 4.605.646 6.766 2.085-.068-.046-.615-.372-1.52-.339C14.946 1.828 12 3.545 12 3.545v.006z"/>
                 </svg>
@@ -417,7 +417,7 @@
 
         <!-- Pseudo -->
         <div>
-          <label for="pseudo">Pseudo (AffichÃ© en jeu)</label>
+          <label for="pseudo">Pseudo (Affich&eacute; en jeu)</label>
           <input id="pseudo" name="pseudo" type="text" required autocomplete="off" />
           <div id="pseudoHint" class="field-hint"></div>
         </div>
@@ -428,9 +428,9 @@
           <input id="id" name="id" type="text" required autocomplete="off" />
         </div>
 
-        <!-- NÂ° Pilote -->
+        <!-- N&deg; Pilote -->
         <div>
-          <label for="numeroPilote">NÂ° Pilote</label>
+          <label for="numeroPilote">N&deg; Pilote</label>
           <input id="numeroPilote" name="numeroPilote" type="number" min="1" max="999" required />
           <div id="numeroHint" class="field-hint"></div>
         </div>
@@ -443,12 +443,12 @@
         <div id="status" class="status" role="alert"></div>
       </form>
 
-      <!-- Ã‰cran de confirmation (cachÃ© par dÃ©faut) -->
+      <!-- Ecran de confirmation (cache par defaut) -->
       <div id="successScreen" style="display:none; text-align:center; padding: 12px 0;">
         <div style="font-size:3.5rem; margin-bottom:12px;">OK</div>
-        <h2 style="font-size:1.4rem; margin-bottom:8px; color:#fff;">Entrylist enregistrÃ©e !</h2>
+        <h2 style="font-size:1.4rem; margin-bottom:8px; color:#fff;">Entrylist enregistr&eacute;e !</h2>
         <p style="color:var(--muted); font-size:0.9rem; margin-bottom:6px;">Bienvenue sur la grille, <strong id="confirmedPseudo" style="color:#fff;"></strong> !</p>
-        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:22px;">NÂ° Pilote : <strong id="confirmedNumero" style="color:var(--accent-3);"></strong></p>
+        <p style="color:var(--muted); font-size:0.85rem; margin-bottom:22px;">N&deg; Pilote : <strong id="confirmedNumero" style="color:var(--accent-3);"></strong></p>
         <a href="entrylist_liste.html" class="btn" style="display:inline-flex;">Voir la liste des pilotes</a>
       </div>
     </div>
@@ -465,7 +465,7 @@
     const platformHint  = document.getElementById("platformHint");
     const successScreen = document.getElementById("successScreen");
 
-    let submitted = false; // bloquÃ© en mÃ©moire seulement (reset au refresh)
+    let submitted = false; // bloque en memoire seulement (reset au refresh)
 
     function showSuccess(pseudo, numero, celebrate) {
       submitted = true;
@@ -476,7 +476,7 @@
 
     }
 
-    // â”€â”€ Fetch list pour doublon â”€â”€
+    // -- Fetch list pour doublon --
     let cachedList = null;
     let submitting = false;
 
@@ -509,13 +509,13 @@
       );
     }
 
-    // â”€â”€ Hints en temps rÃ©el â”€â”€
+    // -- Hints en temps reel --
     document.getElementById("pseudo").addEventListener("blur", async () => {
       const val = document.getElementById("pseudo").value.trim().toLowerCase();
       if (!val) return;
       try {
         const list = await getList();
-        pseudoHint.textContent = list.some(r => r.pseudo === val) ? "Ce pseudo est dÃ©jÃ  utilisÃ©." : "Pseudo disponible âœ“";
+        pseudoHint.textContent = list.some(r => r.pseudo === val) ? "Ce pseudo est d\u00e9j\u00e0 utilis\u00e9." : "Pseudo disponible OK";
         pseudoHint.className = "field-hint " + (list.some(r => r.pseudo === val) ? "error" : "success");
       } catch (_) {}
     });
@@ -525,12 +525,12 @@
       if (!val) return;
       try {
         const list = await getList();
-        numeroHint.textContent = list.some(r => r.numero === val) ? "Ce numÃ©ro est dÃ©jÃ  utilisÃ©." : "NumÃ©ro disponible âœ“";
+        numeroHint.textContent = list.some(r => r.numero === val) ? "Ce num\u00e9ro est d\u00e9j\u00e0 utilis\u00e9." : "Num\u00e9ro disponible OK";
         numeroHint.className = "field-hint " + (list.some(r => r.numero === val) ? "error" : "success");
       } catch (_) {}
     });
 
-    // â”€â”€ Submit â”€â”€
+    // -- Submit --
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (submitting || submitted) return;
@@ -555,7 +555,7 @@
 
       const numVal = parseInt(numeroPilote);
       if (isNaN(numVal) || numVal < 1 || numVal > 999) {
-        statusEl.textContent = "Le numÃ©ro de pilote doit Ãªtre compris entre 1 et 999.";
+        statusEl.textContent = "Le num\u00e9ro de pilote doit \u00eatre compris entre 1 et 999.";
         statusEl.className = "status error";
         document.getElementById("numeroPilote").focus();
         submitting = false; submitBtn.disabled = false;
@@ -564,23 +564,23 @@
 
       submitting = true;
       submitBtn.disabled = true;
-      statusEl.textContent = "VÃ©rification en cours...";
+      statusEl.textContent = "V\u00e9rification en cours...";
       statusEl.className = "status";
 
       // Doublon check
       try {
         const list = await getList();
         if (list.some(r => r.pseudo === pseudo.toLowerCase())) {
-          statusEl.textContent = "Ce pseudo est dÃ©jÃ  utilisÃ©.";
+          statusEl.textContent = "Ce pseudo est d\u00e9j\u00e0 utilis\u00e9.";
           statusEl.className = "status error";
-          pseudoHint.textContent = "Ce pseudo est dÃ©jÃ  utilisÃ©.";
+          pseudoHint.textContent = "Ce pseudo est d\u00e9j\u00e0 utilis\u00e9.";
           pseudoHint.className = "field-hint error";
           submitting = false; submitBtn.disabled = false; return;
         }
         if (list.some(r => r.numero === numeroPilote)) {
-          statusEl.textContent = "Ce numÃ©ro de pilote est dÃ©jÃ  utilisÃ©.";
+          statusEl.textContent = "Ce num\u00e9ro de pilote est d\u00e9j\u00e0 utilis\u00e9.";
           statusEl.className = "status error";
-          numeroHint.textContent = "Ce numÃ©ro est dÃ©jÃ  utilisÃ©.";
+          numeroHint.textContent = "Ce num\u00e9ro est d\u00e9j\u00e0 utilis\u00e9.";
           numeroHint.className = "field-hint error";
           submitting = false; submitBtn.disabled = false; return;
         }
@@ -599,19 +599,19 @@
       try {
         await fetch(WEB_APP_URL, { method: "POST", mode: "no-cors", body: formData });
 
-        // Afficher l'Ã©cran de succÃ¨s
+        // Afficher l'ecran de succes
         showSuccess(pseudo, numeroPilote, true);
 
       } catch (err) {
         console.error(err);
-        statusEl.textContent = "Erreur lors de l'envoi. Merci de rÃ©essayer.";
+        statusEl.textContent = "Erreur lors de l'envoi. Merci de r\u00e9essayer.";
         statusEl.className = "status error";
         submitting = false;
         submitBtn.disabled = false;
       }
     });
 
-    // â”€â”€ Animated favicon â”€â”€
+    // -- Animated favicon --
     (function animateFavicon() {
       const canvas = document.createElement("canvas");
       canvas.width = 32; canvas.height = 32;

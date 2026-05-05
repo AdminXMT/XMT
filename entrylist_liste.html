@@ -297,15 +297,7 @@
       80%  { opacity: 0.4; }
       100% { transform: translateY(-80vh) translateX(var(--drift, 40px)); opacity: 0; }
     }
-
-    @keyframes bgCarDrive {
-      0%   { left: -420px; opacity: 0; }
-      8%   { opacity: 0.45; }
-      88%  { opacity: 0.45; }
-      100% { left: calc(100vw + 50px); opacity: 0; }
-    }
-
-    @keyframes panelIn {
+@keyframes panelIn {
       from { opacity: 0; transform: translateY(20px) scale(0.98); }
       to   { opacity: 1; transform: translateY(0) scale(1); }
     }
@@ -379,28 +371,6 @@
   <div id="flashOverlay"></div>
 <!-- Particules flottantes -->
   <div class="particles" id="particlesContainer"></div>
-
-  <!-- Voiture de fond (grande, transparente) -->
-  <div class="bg-car-layer">
-    <svg viewBox="0 0 340 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="170" cy="84" rx="140" ry="7" fill="rgba(0,0,0,0.35)"/>
-      <path d="M18 62 L28 36 Q42 16 80 13 L170 10 Q215 8 242 16 L268 28 Q282 38 286 62 Z" fill="rgba(138,15,143,0.85)"/>
-      <path d="M85 13 Q130 4 175 4 Q210 5 228 13 L220 28 Q192 20 162 20 Q128 20 105 25 Z" fill="rgba(192,0,74,0.4)"/>
-      <path d="M135 10 L160 10 L164 62 L140 62 Z" fill="rgba(168,0,53,0.35)"/>
-      <rect x="272" y="22" width="44" height="6" rx="3" fill="rgba(138,15,143,0.95)"/>
-      <rect x="284" y="28" width="4" height="16" fill="rgba(220,220,220,0.6)"/>
-      <rect x="300" y="28" width="4" height="16" fill="rgba(220,220,220,0.6)"/>
-      <path d="M12 60 L42 60 L36 72 L6 72 Z" fill="rgba(138,15,143,0.7)"/>
-      <circle cx="78" cy="70" r="20" fill="#080810"/>
-      <circle cx="78" cy="70" r="13" fill="#111" stroke="rgba(192,0,74,0.6)" stroke-width="2"/>
-      <circle cx="78" cy="70" r="6" fill="#1a1a25"/>
-      <circle cx="240" cy="70" r="22" fill="#080810"/>
-      <circle cx="240" cy="70" r="14" fill="#111" stroke="rgba(168,0,53,0.6)" stroke-width="2"/>
-      <circle cx="240" cy="70" r="6" fill="#1a1a25"/>
-      <ellipse cx="315" cy="56" rx="10" ry="5" fill="rgba(255,110,0,0.5)"/>
-    </svg>
-  </div>
-
 
   <main class="container">
     <section class="hero">
