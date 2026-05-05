@@ -483,7 +483,6 @@
     </section>
 
     <section class="table-card">
-      <div id="status" class="status">Chargement de la liste depuis Google Sheets...</div>
       <div class="table-wrap">
         <table>
           <thead>
@@ -577,7 +576,6 @@
           tbody.appendChild(tr);
         });
 
-        status.textContent = rows.length + " pilote(s) chargé(s) depuis Google Sheets.";
         status.className = "status success";
 
       } catch (error) {
@@ -635,7 +633,6 @@
           tbody.appendChild(tr);
         });
 
-        status.textContent = pilots.length + " pilote(s) charge(s) depuis Google Sheets.";
         status.className = "status success";
       } catch (error) {
         tbody.innerHTML = '<tr><td colspan="3" class="empty">Impossible de charger les pilotes.</td></tr>';
