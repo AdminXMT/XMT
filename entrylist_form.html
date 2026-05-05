@@ -29,10 +29,10 @@
       min-height: 100vh;
       overflow-x: hidden;
       background:
-        radial-gradient(circle at 18% 18%, rgba(255, 63, 215, 0.22), transparent 27%),
-        radial-gradient(circle at 82% 8%, rgba(69, 214, 255, 0.2), transparent 25%),
-        radial-gradient(circle at 50% 100%, rgba(138, 15, 143, 0.28), transparent 34%),
-        linear-gradient(135deg, #07070c 0%, #10091a 48%, #080912 100%);
+        linear-gradient(90deg, rgba(3, 4, 8, 0.82), rgba(8, 8, 14, 0.42) 44%, rgba(4, 5, 9, 0.88)),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.42), rgba(0, 0, 0, 0.72)),
+        url("xmt-gt3-showroom.png") center center / cover fixed no-repeat,
+        #07070c;
       color: var(--text);
       isolation: isolate;
     }
@@ -61,6 +61,17 @@
         linear-gradient(115deg, transparent 0 64%, rgba(69, 214, 255, 0.12) 65%, transparent 67% 100%);
       transform: translateX(-18%);
       animation: speedLines 7s ease-in-out infinite;
+    }
+
+    .showroom-bg {
+      position: fixed;
+      inset: -4%;
+      z-index: -3;
+      pointer-events: none;
+      background: url("xmt-gt3-showroom.png") center center / cover no-repeat;
+      filter: saturate(1.08) contrast(1.05);
+      transform-origin: center;
+      animation: showroomMove 18s ease-in-out infinite alternate;
     }
 
     .race-scene {
@@ -385,6 +396,11 @@
       50% { background-position: 100% 50%; }
     }
 
+    @keyframes showroomMove {
+      from { transform: scale(1.02) translate3d(-1.2%, -0.6%, 0); }
+      to { transform: scale(1.08) translate3d(1.2%, 0.8%, 0); }
+    }
+
     @keyframes roadRush {
       from { background-position: 0 0, 0 0; }
       to { background-position: -116px 0, 0 0; }
@@ -437,6 +453,7 @@
   </style>
 </head>
 <body>
+  <div class="showroom-bg" aria-hidden="true"></div>
   <div class="race-scene" aria-hidden="true">
     <div class="race-car">
       <span class="wheel back"></span>
