@@ -278,6 +278,41 @@
     .btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 16px 38px rgba(69,214,255,0.22), 0 10px 28px rgba(255,63,215,0.2); }
     .btn:hover::before { transform: translateX(120%); }
 
+    /* ══ SEARCH BAR ══ */
+    .search-bar {
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 9px 14px 9px 36px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(8,8,15,0.7);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+      user-select: text; -webkit-user-select: text;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23b8b8c6' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.868-3.833zm-5.242 1.156a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 11px center;
+    }
+
+    .search-input:focus {
+      border-color: rgba(69,214,255,0.7);
+      box-shadow: 0 0 0 3px rgba(69,214,255,0.1);
+    }
+
+    .search-input::placeholder { color: var(--muted); }
+
+    .no-results {
+      text-align: center; padding: 32px;
+      color: var(--muted); font-style: italic;
+    }
+
     /* ══ STATUS BAR ══ */
     .status-bar {
       padding: 7px 18px; font-size: 0.82rem; color: var(--muted);
@@ -560,6 +595,9 @@
     </section>
 
     <section class="table-card">
+      <div class="search-bar">
+        <input class="search-input" id="searchInput" type="text" placeholder="Rechercher un pseudo..." autocomplete="off" />
+      </div>
       <div class="status-bar" id="statusBar">Chargement des pilotes...</div>
 
       <!-- PC -->
@@ -604,40 +642,39 @@
     })();
 
     // ── Data ──
-    const tableBody = document.getElementById("tableBody");
-    const cardList  = document.getElementById("cardList");
-    const statusBar = document.getElementById("statusBar");
+    const tableBody   = document.getElementById("tableBody");
+    const cardList    = document.getElementById("cardList");
+    const statusBar   = document.getElementById("statusBar");
+    const searchInput = document.getElementById("searchInput");
 
-    async function loadPilots() {
-      try {
-        const payload = await fetchData();
-        const pilots  = normalizePilots(payload);
+    let allPilots = [];
 
-        if (pilots.length === 0) {
-          tableBody.innerHTML = '<tr><td colspan="3" class="empty">Aucun pilote inscrit pour le moment.</td></tr>';
-          cardList.innerHTML  = '<div style="padding:28px;text-align:center;color:var(--muted);font-style:italic">Aucun pilote inscrit.</div>';
-          statusBar.textContent = "Aucune donnée.";
-          return;
-        }
-
-        // PC Table
-        tableBody.innerHTML = "";
+    function renderPilots(pilots) {
+      // PC table
+      tableBody.innerHTML = "";
+      if (pilots.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="3" class="no-results">Aucun pilote trouvé.</td></tr>';
+      } else {
         pilots.forEach((p, i) => {
           const tr = document.createElement("tr");
-          tr.style.animationDelay = (i * 0.045) + "s";
+          tr.style.animationDelay = (i * 0.04) + "s";
           tr.innerHTML = `
             <td>${esc(p.pseudo)}</td>
             <td class="num-col"><span class="num-badge">${esc(p.numero)}</span></td>
             <td><span class="pts-badge"><span class="pts-dot"></span>${esc(p.points)}</span></td>`;
           tableBody.appendChild(tr);
         });
+      }
 
-        // Mobile cards
-        cardList.innerHTML = "";
+      // Mobile cards
+      cardList.innerHTML = "";
+      if (pilots.length === 0) {
+        cardList.innerHTML = '<div class="no-results">Aucun pilote trouvé.</div>';
+      } else {
         pilots.forEach((p, i) => {
           const div = document.createElement("div");
           div.className = "pilot-card";
-          div.style.animationDelay = (i * 0.045) + "s";
+          div.style.animationDelay = (i * 0.04) + "s";
           div.innerHTML = `
             <div class="card-num">${esc(p.numero)}</div>
             <div class="card-info">
@@ -646,7 +683,22 @@
             </div>`;
           cardList.appendChild(div);
         });
+      }
+    }
 
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.trim().toLowerCase();
+      const filtered = q ? allPilots.filter(p => p.pseudo.toLowerCase().includes(q)) : allPilots;
+      renderPilots(filtered);
+    });
+
+    async function loadPilots() {
+      try {
+        const payload = await fetchData();
+        const pilots  = normalizePilots(payload);
+
+        allPilots = pilots;
+        renderPilots(pilots);
         statusBar.textContent = "";
         statusBar.className = "status-bar";
 
