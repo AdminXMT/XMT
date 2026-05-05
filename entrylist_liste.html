@@ -273,7 +273,8 @@
 
 
     /* ══ TABLE ══ */
-    .table-wrap { overflow-x: auto; }
+    .table-wrap { overflow-x: auto; overflow-y: auto; max-height: 60vh; }
+    .table-wrap thead th { position: sticky; top: 0; z-index: 2; background: #962972; }
 
     table { width: 100%; border-collapse: collapse; min-width: 380px; }
 
@@ -357,7 +358,7 @@
     }
 
     /* ══ MOBILE CARDS ══ */
-    .pilot-cards { display: none; }
+    .pilot-cards { display: none; overflow-y: auto; max-height: 60vh; }
 
     .pilot-card {
       display: flex; align-items: center; gap: 14px;
