@@ -10,10 +10,10 @@
       --bg: #0b0b0f;
       --text: #f4f4f7;
       --muted: #b8b8c6;
-      --accent: #8a0f8f;
-      --accent-2: #c13bc6;
-      --accent-3: #45d6ff;
-      --hot: #ff3fd7;
+      --accent: #6b006e;
+      --accent-2: #920080;
+      --accent-3: #c0004a;
+      --hot: #a80035;
       --border: rgba(255,255,255,0.1);
       --success: #8cffb1;
       --error: #ffb3b3;
@@ -54,8 +54,8 @@
       position: fixed; inset: 0; pointer-events: none; z-index: -1;
       background:
         linear-gradient(108deg, transparent 0 28%, rgba(255,255,255,0.06) 30%, transparent 32% 100%),
-        linear-gradient(108deg, transparent 0 55%, rgba(69,214,255,0.08) 57%, transparent 59% 100%),
-        linear-gradient(108deg, transparent 0 72%, rgba(255,63,215,0.05) 74%, transparent 76% 100%);
+        linear-gradient(108deg, transparent 0 55%, rgba(192,0,74,0.08) 57%, transparent 59% 100%),
+        linear-gradient(108deg, transparent 0 72%, rgba(168,0,53,0.05) 74%, transparent 76% 100%);
       animation: speedLines 5s ease-in-out infinite;
     }
 
@@ -97,7 +97,7 @@
       pointer-events: none;
       z-index: -1;
       opacity: 0.28;
-      filter: blur(0.5px) drop-shadow(0 0 20px rgba(255,63,215,0.6));
+      filter: blur(0.5px) drop-shadow(0 0 20px rgba(168,0,53,0.6));
       animation: bgCarDrive 18s linear infinite;
     }
 
@@ -112,8 +112,8 @@
       background:
         repeating-linear-gradient(90deg, rgba(255,255,255,0.18) 0 52px, transparent 52px 108px),
         linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.01));
-      border-top: 1px solid rgba(69,214,255,0.25);
-      border-bottom: 1px solid rgba(255,63,215,0.2);
+      border-top: 1px solid rgba(192,0,74,0.25);
+      border-bottom: 1px solid rgba(168,0,53,0.2);
       transform: perspective(340px) rotateX(56deg);
       transform-origin: bottom center;
       animation: roadRush 0.9s linear infinite;
@@ -121,8 +121,8 @@
 
     .road-glow {
       position: absolute; left: 0; right: 0; bottom: 88px; height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(69,214,255,0.9), rgba(255,63,215,0.8), transparent);
-      box-shadow: 0 0 22px rgba(69,214,255,0.5), 0 0 44px rgba(255,63,215,0.3);
+      background: linear-gradient(90deg, transparent, rgba(192,0,74,0.9), rgba(168,0,53,0.8), transparent);
+      box-shadow: 0 0 22px rgba(192,0,74,0.5), 0 0 44px rgba(168,0,53,0.3);
       animation: horizonPulse 2s ease-in-out infinite;
     }
 
@@ -130,14 +130,14 @@
     .race-car {
       position: absolute; left: -320px; bottom: 58px;
       width: 300px; height: 90px;
-      filter: drop-shadow(0 0 18px rgba(255,63,215,0.8)) drop-shadow(0 6px 12px rgba(0,0,0,0.9));
+      filter: drop-shadow(0 0 18px rgba(168,0,53,0.8)) drop-shadow(0 6px 12px rgba(0,0,0,0.9));
       animation: carLap 6s cubic-bezier(.4,.02,.3,1) infinite;
     }
 
     .car-trail {
       position: absolute; right: 100%; bottom: 30px;
       width: 160px; height: 14px;
-      background: linear-gradient(90deg, transparent, rgba(69,214,255,0.06), rgba(255,63,215,0.5));
+      background: linear-gradient(90deg, transparent, rgba(192,0,74,0.06), rgba(168,0,53,0.5));
       filter: blur(4px); border-radius: 999px;
     }
 
@@ -169,8 +169,8 @@
       content: ""; position: absolute; inset: -1px;
       background:
         linear-gradient(120deg, transparent 0 30%, rgba(255,255,255,0.18) 43%, transparent 56% 100%),
-        radial-gradient(circle at top left, rgba(255,63,215,0.2), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(69,214,255,0.15), transparent 32%);
+        radial-gradient(circle at top left, rgba(168,0,53,0.2), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(192,0,74,0.15), transparent 32%);
       opacity: 0.8; transform: translateX(-45%);
       animation: cardShine 6s ease-in-out infinite; pointer-events: none;
     }
@@ -194,7 +194,7 @@
       flex-shrink: 0;
       transition: filter 0.3s;
     }
-    .hero-logo:hover { filter: drop-shadow(0 0 22px rgba(69,214,255,0.7)); }
+    .hero-logo:hover { filter: drop-shadow(0 0 22px rgba(192,0,74,0.7)); }
 
     .hero-text { flex: 1; min-width: 180px; }
 
@@ -229,7 +229,7 @@
       background: linear-gradient(115deg, transparent 0 34%, rgba(255,255,255,0.32) 46%, transparent 58% 100%);
       transform: translateX(-120%); transition: transform 0.5s;
     }
-    .btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 16px 38px rgba(69,214,255,0.22), 0 10px 28px rgba(255,63,215,0.2); }
+    .btn:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 16px 38px rgba(192,0,74,0.22), 0 10px 28px rgba(168,0,53,0.2); }
     .btn:hover::before { transform: translateX(120%); }
 
     /* ══ SEARCH BAR ══ */
@@ -256,8 +256,8 @@
     }
 
     .search-input:focus {
-      border-color: rgba(69,214,255,0.7);
-      box-shadow: 0 0 0 3px rgba(69,214,255,0.1);
+      border-color: rgba(192,0,74,0.7);
+      box-shadow: 0 0 0 3px rgba(192,0,74,0.1);
     }
 
     .search-input::placeholder { color: var(--muted); }
@@ -279,7 +279,7 @@
     .table-card {
       background: linear-gradient(145deg, rgba(18,17,28,0.94), rgba(6,7,14,0.92));
       border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; overflow: hidden;
-      box-shadow: 0 24px 72px rgba(0,0,0,0.5), 0 0 40px rgba(69,214,255,0.08), inset 0 1px 0 rgba(255,255,255,0.07);
+      box-shadow: 0 24px 72px rgba(0,0,0,0.5), 0 0 40px rgba(192,0,74,0.08), inset 0 1px 0 rgba(255,255,255,0.07);
       backdrop-filter: blur(20px);
       animation: panelIn 0.9s 0.14s cubic-bezier(.2,.8,.2,1) both;
     }
@@ -290,7 +290,7 @@
     table { width: 100%; border-collapse: collapse; min-width: 380px; }
 
     thead tr {
-      background: linear-gradient(90deg, rgba(138,15,143,0.9), rgba(255,63,215,0.75), rgba(69,214,255,0.7));
+      background: linear-gradient(90deg, rgba(138,15,143,0.9), rgba(168,0,53,0.75), rgba(192,0,74,0.7));
       background-size: 220% 100%;
       animation: buttonFlow 6s ease infinite;
     }
@@ -314,8 +314,8 @@
     tbody tr:nth-child(even) { background: rgba(255,255,255,0.018); }
 
     tbody tr:hover {
-      background: rgba(69,214,255,0.06);
-      box-shadow: inset 4px 0 0 var(--hot), inset -1px 0 0 rgba(255,63,215,0.15);
+      background: rgba(192,0,74,0.06);
+      box-shadow: inset 4px 0 0 var(--hot), inset -1px 0 0 rgba(168,0,53,0.15);
     }
 
     td { padding: 11px 18px; font-size: 0.93rem; }
@@ -328,7 +328,7 @@
       width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
       font-weight: 900; font-size: 0.75rem; text-transform: uppercase;
-      background: linear-gradient(135deg, rgba(138,15,143,0.4), rgba(69,214,255,0.2));
+      background: linear-gradient(135deg, rgba(138,15,143,0.4), rgba(192,0,74,0.2));
       border: 1px solid rgba(255,255,255,0.12);
       color: rgba(255,255,255,0.85);
     }
@@ -340,14 +340,14 @@
       display: inline-flex; align-items: center; justify-content: center;
       min-width: 40px; height: 30px; padding: 0 10px;
       border-radius: 8px;
-      background: rgba(69,214,255,0.1); border: 1px solid rgba(69,214,255,0.3);
+      background: rgba(192,0,74,0.1); border: 1px solid rgba(192,0,74,0.3);
       color: var(--accent-3); font-weight: 900; font-size: 1rem;
-      box-shadow: 0 0 12px rgba(69,214,255,0.15);
+      box-shadow: 0 0 12px rgba(192,0,74,0.15);
       transition: box-shadow 0.2s;
     }
 
     tbody tr:hover .num-badge {
-      box-shadow: 0 0 20px rgba(69,214,255,0.4);
+      box-shadow: 0 0 20px rgba(192,0,74,0.4);
     }
 
     /* Points badge */
@@ -356,7 +356,7 @@
       padding: 4px 12px; border-radius: 999px;
       background: rgba(138,15,143,0.2); border: 1px solid rgba(193,59,198,0.3);
       color: #f8d5ff; font-weight: 700; font-size: 0.85rem;
-      box-shadow: 0 0 12px rgba(255,63,215,0.12);
+      box-shadow: 0 0 12px rgba(168,0,53,0.12);
     }
 
     .pts-dot {
@@ -380,14 +380,14 @@
       animation: rowSlideIn 0.5s ease both;
     }
     .pilot-card:last-child { border-bottom: none; }
-    .pilot-card:hover { background: rgba(69,214,255,0.05); }
+    .pilot-card:hover { background: rgba(192,0,74,0.05); }
 
     .card-num {
       min-width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center;
       font-weight: 900; font-size: 1.05rem; color: var(--accent-3);
-      background: rgba(69,214,255,0.1); border: 1px solid rgba(69,214,255,0.3);
-      box-shadow: 0 0 12px rgba(69,214,255,0.15);
+      background: rgba(192,0,74,0.1); border: 1px solid rgba(192,0,74,0.3);
+      box-shadow: 0 0 12px rgba(192,0,74,0.15);
     }
 
     .card-info { flex: 1; min-width: 0; }
@@ -432,8 +432,8 @@
     }
 
     @keyframes titleGlow {
-      0%, 100% { filter: drop-shadow(0 0 6px rgba(255,63,215,0.2)); }
-      50%       { filter: drop-shadow(0 0 16px rgba(69,214,255,0.35)); }
+      0%, 100% { filter: drop-shadow(0 0 6px rgba(168,0,53,0.2)); }
+      50%       { filter: drop-shadow(0 0 16px rgba(192,0,74,0.35)); }
     }
 
     @keyframes buttonFlow {
@@ -500,17 +500,17 @@
     <svg viewBox="0 0 340 90" fill="none" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="170" cy="84" rx="140" ry="7" fill="rgba(0,0,0,0.35)"/>
       <path d="M18 62 L28 36 Q42 16 80 13 L170 10 Q215 8 242 16 L268 28 Q282 38 286 62 Z" fill="rgba(138,15,143,0.85)"/>
-      <path d="M85 13 Q130 4 175 4 Q210 5 228 13 L220 28 Q192 20 162 20 Q128 20 105 25 Z" fill="rgba(69,214,255,0.4)"/>
-      <path d="M135 10 L160 10 L164 62 L140 62 Z" fill="rgba(255,63,215,0.35)"/>
+      <path d="M85 13 Q130 4 175 4 Q210 5 228 13 L220 28 Q192 20 162 20 Q128 20 105 25 Z" fill="rgba(192,0,74,0.4)"/>
+      <path d="M135 10 L160 10 L164 62 L140 62 Z" fill="rgba(168,0,53,0.35)"/>
       <rect x="272" y="22" width="44" height="6" rx="3" fill="rgba(138,15,143,0.95)"/>
       <rect x="284" y="28" width="4" height="16" fill="rgba(220,220,220,0.6)"/>
       <rect x="300" y="28" width="4" height="16" fill="rgba(220,220,220,0.6)"/>
       <path d="M12 60 L42 60 L36 72 L6 72 Z" fill="rgba(138,15,143,0.7)"/>
       <circle cx="78" cy="70" r="20" fill="#080810"/>
-      <circle cx="78" cy="70" r="13" fill="#111" stroke="rgba(69,214,255,0.6)" stroke-width="2"/>
+      <circle cx="78" cy="70" r="13" fill="#111" stroke="rgba(192,0,74,0.6)" stroke-width="2"/>
       <circle cx="78" cy="70" r="6" fill="#1a1a25"/>
       <circle cx="240" cy="70" r="22" fill="#080810"/>
-      <circle cx="240" cy="70" r="14" fill="#111" stroke="rgba(255,63,215,0.6)" stroke-width="2"/>
+      <circle cx="240" cy="70" r="14" fill="#111" stroke="rgba(168,0,53,0.6)" stroke-width="2"/>
       <circle cx="240" cy="70" r="6" fill="#1a1a25"/>
       <ellipse cx="315" cy="56" rx="10" ry="5" fill="rgba(255,110,0,0.5)"/>
     </svg>
@@ -533,9 +533,9 @@
         <path d="M20 65 L28 42 Q40 20 75 17 L155 14 Q200 12 228 20 L255 32 Q268 42 270 65 Z" fill="url(#bodyGrad)" opacity="0.6"/>
         <defs>
           <linearGradient id="bodyGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#45d6ff" stop-opacity="0.6"/>
-            <stop offset="50%" stop-color="#ff3fd7" stop-opacity="0.8"/>
-            <stop offset="100%" stop-color="#45d6ff" stop-opacity="0.4"/>
+            <stop offset="0%" stop-color="#c0004a" stop-opacity="0.6"/>
+            <stop offset="50%" stop-color="#a80035" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#c0004a" stop-opacity="0.4"/>
           </linearGradient>
         </defs>
         <!-- Reflet toit -->
@@ -547,21 +547,21 @@
           </linearGradient>
         </defs>
         <!-- Vitre -->
-        <path d="M80 17 Q125 7 165 7 Q200 8 218 17 L210 30 Q180 22 150 22 Q115 22 95 27 Z" fill="rgba(69,214,255,0.45)" stroke="rgba(69,214,255,0.7)" stroke-width="1"/>
+        <path d="M80 17 Q125 7 165 7 Q200 8 218 17 L210 30 Q180 22 150 22 Q115 22 95 27 Z" fill="rgba(192,0,74,0.45)" stroke="rgba(192,0,74,0.7)" stroke-width="1"/>
         <!-- Bande centrale blanche -->
         <path d="M138 14 L158 14 L162 65 L142 65 Z" fill="rgba(255,255,255,0.75)"/>
         <!-- Aileron arrière -->
-        <rect x="260" y="24" width="36" height="6" rx="3" fill="#8a0f8f" stroke="rgba(255,63,215,0.7)" stroke-width="1"/>
+        <rect x="260" y="24" width="36" height="6" rx="3" fill="#8a0f8f" stroke="rgba(168,0,53,0.7)" stroke-width="1"/>
         <rect x="271" y="30" width="4" height="18" fill="rgba(200,200,200,0.7)"/>
         <rect x="284" y="30" width="4" height="18" fill="rgba(200,200,200,0.7)"/>
         <!-- Becquet avant -->
-        <path d="M15 62 L42 62 L36 74 L8 74 Z" fill="#6b0a70" stroke="rgba(69,214,255,0.4)" stroke-width="1"/>
+        <path d="M15 62 L42 62 L36 74 L8 74 Z" fill="#6b0a70" stroke="rgba(192,0,74,0.4)" stroke-width="1"/>
         <!-- Numéro -->
         <rect x="145" y="18" width="30" height="18" rx="3" fill="rgba(0,0,0,0.55)" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
         <text x="160" y="30" text-anchor="middle" font-family="Arial" font-weight="900" font-size="10" fill="white" opacity="0.9">XMT</text>
         <!-- Roue arrière -->
         <g class="wheel-anim" style="transform-origin:78px 72px">
-          <circle cx="78" cy="72" r="18" fill="#080810" stroke="rgba(69,214,255,0.6)" stroke-width="2"/>
+          <circle cx="78" cy="72" r="18" fill="#080810" stroke="rgba(192,0,74,0.6)" stroke-width="2"/>
           <circle cx="78" cy="72" r="11" fill="#111" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
           <line x1="78" y1="61" x2="78" y2="83" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
           <line x1="67" y1="72" x2="89" y2="72" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
@@ -569,7 +569,7 @@
         </g>
         <!-- Roue avant -->
         <g class="wheel-anim" style="transform-origin:228px 72px">
-          <circle cx="228" cy="72" r="18" fill="#080810" stroke="rgba(255,63,215,0.6)" stroke-width="2"/>
+          <circle cx="228" cy="72" r="18" fill="#080810" stroke="rgba(168,0,53,0.6)" stroke-width="2"/>
           <circle cx="228" cy="72" r="11" fill="#111" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
           <line x1="228" y1="61" x2="228" y2="83" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
           <line x1="217" y1="72" x2="239" y2="72" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
