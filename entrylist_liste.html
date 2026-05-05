@@ -708,7 +708,7 @@
 
       return pilots
         .filter(p => p.pseudo || p.numero)
-        .sort((a, b) => parseInt(a.numero)||0 - (parseInt(b.numero)||0));
+        .sort((a, b) => (parseInt(a.numero) || 0) - (parseInt(b.numero) || 0));
     }
 
     function pv(obj, keys) {
