@@ -264,7 +264,6 @@
 
     /* ══ TABLE CARD ══ */
     .table-card {
-      position: relative;
       background: rgba(12,10,20,0.94);
       border: 1px solid rgba(255,255,255,0.12); border-radius: 22px; overflow: hidden;
       box-shadow: 0 24px 72px rgba(0,0,0,0.5), 0 0 40px rgba(150,41,114,0.08), inset 0 1px 0 rgba(255,255,255,0.07);
@@ -272,16 +271,6 @@
       animation: panelIn 0.9s 0.14s cubic-bezier(.2,.8,.2,1) both;
     }
 
-    /* ══ CIRCUIT CANVAS ══ */
-    #circuitCanvas {
-      position: absolute; inset: 0;
-      width: 100%; height: 100%;
-      pointer-events: none; z-index: 0;
-      border-radius: 22px;
-    }
-    .search-bar, .status-bar, .table-wrap, .pilot-cards {
-      position: relative; z-index: 1;
-    }
 
     /* ══ TABLE ══ */
     .table-wrap { overflow-x: auto; }
@@ -616,7 +605,6 @@
     </section>
 
     <section class="table-card">
-      <canvas id="circuitCanvas"></canvas>
       <div class="search-bar">
         <input class="search-input" id="searchInput" type="text" placeholder="Rechercher un pseudo..." autocomplete="off" />
       </div>
@@ -841,93 +829,6 @@
     })();
 
     loadPilots();
-
-    // ── Circuit aléatoire de fond ──
-    (function initCircuit() {
-      const canvas = document.getElementById("circuitCanvas");
-      if (!canvas) return;
-      const ctx = canvas.getContext("2d");
-      let curPts = null, nxtPts = null, progress = 1;
-      let raf;
-
-      function resize() {
-        canvas.width = canvas.offsetWidth || canvas.parentElement.offsetWidth;
-        canvas.height = canvas.offsetHeight || canvas.parentElement.offsetHeight;
-      }
-
-      function easeInOut(t) { return t < 0.5 ? 2*t*t : -1+(4-2*t)*t; }
-
-      function genPts(w, h) {
-        const cx = w * 0.5, cy = h * 0.52;
-        const n = 10 + Math.floor(Math.random() * 4);
-        return Array.from({length: n}, (_, i) => {
-          const angle = (i / n) * Math.PI * 2 - Math.PI / 2;
-          const rx = w * (0.28 + Math.random() * 0.14);
-          const ry = h * (0.32 + Math.random() * 0.12);
-          const jit = 0.78 + Math.random() * 0.44;
-          return { x: cx + Math.cos(angle) * rx * jit, y: cy + Math.sin(angle) * ry * jit };
-        });
-      }
-
-      function lerpPts(a, b, t) {
-        return a.map((p, i) => ({ x: p.x + (b[i].x - p.x) * t, y: p.y + (b[i].y - p.y) * t }));
-      }
-
-      function drawPts(pts) {
-        const w = canvas.width, h = canvas.height;
-        ctx.clearRect(0, 0, w, h);
-        if (!pts || pts.length < 3) return;
-
-        ctx.beginPath();
-        ctx.moveTo((pts[0].x + pts[pts.length-1].x)/2, (pts[0].y + pts[pts.length-1].y)/2);
-        for (let i = 0; i < pts.length; i++) {
-          const p1 = pts[i], p2 = pts[(i+1) % pts.length];
-          ctx.quadraticCurveTo(p1.x, p1.y, (p1.x+p2.x)/2, (p1.y+p2.y)/2);
-        }
-        ctx.closePath();
-
-        ctx.strokeStyle = "rgba(150,41,114,0.28)"; ctx.lineWidth = 20; ctx.lineJoin = "round"; ctx.stroke();
-        ctx.strokeStyle = "rgba(107,0,110,0.18)"; ctx.lineWidth = 32; ctx.stroke();
-        ctx.strokeStyle = "rgba(192,0,90,0.45)"; ctx.lineWidth = 2;
-        ctx.setLineDash([24, 18]); ctx.stroke(); ctx.setLineDash([]);
-        ctx.strokeStyle = "rgba(255,255,255,0.07)"; ctx.lineWidth = 7;
-        ctx.setLineDash([32, 22]); ctx.stroke(); ctx.setLineDash([]);
-
-        // Start/finish line
-        const p0 = pts[0], p1 = pts[1];
-        const dx = p1.x - p0.x, dy = p1.y - p0.y, len = Math.sqrt(dx*dx+dy*dy) || 1;
-        const nx = -dy/len * 24, ny = dx/len * 24;
-        ctx.beginPath(); ctx.moveTo(p0.x+nx, p0.y+ny); ctx.lineTo(p0.x-nx, p0.y-ny);
-        ctx.strokeStyle = "rgba(255,255,255,0.35)"; ctx.lineWidth = 2.5; ctx.setLineDash([]); ctx.stroke();
-      }
-
-      function tick(ts) {
-        progress = Math.min(1, progress + 0.008);
-        drawPts(lerpPts(curPts, nxtPts, easeInOut(progress)));
-        if (progress < 1) raf = requestAnimationFrame(tick);
-      }
-
-      function switchCircuit() {
-        const w = canvas.width || 600, h = canvas.height || 400;
-        const n = curPts ? curPts.length : (10 + Math.floor(Math.random() * 4));
-        curPts = curPts || genPts(w, h);
-        let next = genPts(w, h);
-        while (next.length < n) next.push({...next[next.length-1]});
-        nxtPts = next.slice(0, n);
-        while (curPts.length < nxtPts.length) curPts.push({...curPts[curPts.length-1]});
-        curPts = curPts.slice(0, nxtPts.length);
-        progress = 0;
-        cancelAnimationFrame(raf);
-        raf = requestAnimationFrame(tick);
-      }
-
-      resize();
-      curPts = genPts(canvas.width || 600, canvas.height || 400);
-      nxtPts = genPts(canvas.width || 600, canvas.height || 400);
-      drawPts(curPts);
-      setInterval(switchCircuit, 3000);
-      window.addEventListener("resize", () => { resize(); drawPts(lerpPts(curPts, nxtPts, easeInOut(progress))); });
-    })();
   </script>
 </body>
 </html>
