@@ -19,9 +19,7 @@
       --error: #ffb3b3;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -37,8 +35,7 @@
       isolation: isolate;
     }
 
-    body::before,
-    body::after {
+    body::before, body::after {
       content: "";
       position: fixed;
       inset: 0;
@@ -48,17 +45,17 @@
 
     body::before {
       background:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
       background-size: 58px 58px;
-      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 82%);
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), transparent 82%);
       animation: gridDrift 18s linear infinite;
     }
 
     body::after {
       background:
-        linear-gradient(115deg, transparent 0 36%, rgba(255, 255, 255, 0.1) 37%, transparent 39% 100%),
-        linear-gradient(115deg, transparent 0 64%, rgba(69, 214, 255, 0.12) 65%, transparent 67% 100%);
+        linear-gradient(115deg, transparent 0 36%, rgba(255,255,255,0.1) 37%, transparent 39% 100%),
+        linear-gradient(115deg, transparent 0 64%, rgba(69,214,255,0.12) 65%, transparent 67% 100%);
       transform: translateX(-18%);
       animation: speedLines 7s ease-in-out infinite;
     }
@@ -76,9 +73,7 @@
 
     .race-scene {
       position: fixed;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      left: 0; right: 0; bottom: 0;
       height: min(28vh, 220px);
       pointer-events: none;
       overflow: hidden;
@@ -88,15 +83,13 @@
     .race-scene::before {
       content: "";
       position: absolute;
-      left: -5%;
-      right: -5%;
-      bottom: 38px;
+      left: -5%; right: -5%; bottom: 38px;
       height: 72px;
       background:
-        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0 56px, transparent 56px 116px),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
-      border-top: 1px solid rgba(69, 214, 255, 0.28);
-      border-bottom: 1px solid rgba(255, 63, 215, 0.22);
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.22) 0 56px, transparent 56px 116px),
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.01));
+      border-top: 1px solid rgba(69,214,255,0.28);
+      border-bottom: 1px solid rgba(255,63,215,0.22);
       transform: perspective(360px) rotateX(58deg);
       transform-origin: bottom center;
       filter: blur(0.2px);
@@ -106,48 +99,40 @@
     .race-scene::after {
       content: "";
       position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 98px;
+      left: 0; right: 0; bottom: 98px;
       height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(69, 214, 255, 0.8), rgba(255, 63, 215, 0.7), transparent);
-      box-shadow: 0 0 18px rgba(69, 214, 255, 0.45);
+      background: linear-gradient(90deg, transparent, rgba(69,214,255,0.8), rgba(255,63,215,0.7), transparent);
+      box-shadow: 0 0 18px rgba(69,214,255,0.45);
       animation: horizonPulse 2.4s ease-in-out infinite;
     }
 
     .race-car {
       position: absolute;
-      left: -230px;
-      bottom: 74px;
-      width: 210px;
-      height: 76px;
-      filter: drop-shadow(0 0 18px rgba(255, 63, 215, 0.6));
-      animation: carLap 7s cubic-bezier(.45, .02, .35, 1) infinite;
+      left: -230px; bottom: 74px;
+      width: 210px; height: 76px;
+      filter: drop-shadow(0 0 18px rgba(255,63,215,0.6));
+      animation: carLap 7s cubic-bezier(.45,.02,.35,1) infinite;
     }
 
     .race-car::before {
       content: "";
       position: absolute;
-      left: 18px;
-      right: 8px;
-      bottom: 24px;
+      left: 18px; right: 8px; bottom: 24px;
       height: 30px;
       background:
-        linear-gradient(90deg, rgba(69, 214, 255, 0.95), rgba(255, 63, 215, 0.98) 58%, #ffffff 59% 63%, rgba(255, 63, 215, 0.95) 64%),
+        linear-gradient(90deg, rgba(69,214,255,0.95), rgba(255,63,215,0.98) 58%, #ffffff 59% 63%, rgba(255,63,215,0.95) 64%),
         linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
       clip-path: polygon(0 72%, 8% 42%, 33% 36%, 45% 0, 68% 0, 82% 35%, 100% 50%, 95% 83%, 10% 88%);
       border-radius: 22px 34px 18px 18px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 0 24px rgba(69, 214, 255, 0.32);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 24px rgba(69,214,255,0.32);
     }
 
     .race-car::after {
       content: "";
       position: absolute;
-      left: -120px;
-      bottom: 36px;
-      width: 138px;
-      height: 14px;
-      background: linear-gradient(90deg, transparent, rgba(69, 214, 255, 0.12), rgba(255, 63, 215, 0.8));
+      left: -120px; bottom: 36px;
+      width: 138px; height: 14px;
+      background: linear-gradient(90deg, transparent, rgba(69,214,255,0.12), rgba(255,63,215,0.8));
       filter: blur(2px);
       border-radius: 999px;
     }
@@ -155,13 +140,11 @@
     .wheel {
       position: absolute;
       bottom: 11px;
-      width: 34px;
-      height: 34px;
+      width: 34px; height: 34px;
       border-radius: 50%;
-      background:
-        radial-gradient(circle, #f8fbff 0 12%, #1b1b25 13% 36%, #050509 37% 100%);
-      border: 3px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 12px rgba(69, 214, 255, 0.45);
+      background: radial-gradient(circle, #f8fbff 0 12%, #1b1b25 13% 36%, #050509 37% 100%);
+      border: 3px solid rgba(255,255,255,0.2);
+      box-shadow: 0 0 12px rgba(69,214,255,0.45);
       animation: wheelSpin 0.45s linear infinite;
     }
 
@@ -178,16 +161,16 @@
     .card {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(145deg, rgba(26, 24, 38, 0.92), rgba(8, 9, 16, 0.86));
-      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: linear-gradient(145deg, rgba(26,24,38,0.92), rgba(8,9,16,0.86));
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 24px;
       padding: 34px;
       box-shadow:
-        0 28px 80px rgba(0, 0, 0, 0.48),
-        0 0 44px rgba(193, 59, 198, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.13);
+        0 28px 80px rgba(0,0,0,0.48),
+        0 0 44px rgba(193,59,198,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.13);
       backdrop-filter: blur(18px);
-      animation: panelIn 0.8s cubic-bezier(.2, .8, .2, 1) both;
+      animation: panelIn 0.8s cubic-bezier(.2,.8,.2,1) both;
     }
 
     .card::before {
@@ -195,9 +178,9 @@
       position: absolute;
       inset: -1px;
       background:
-        linear-gradient(120deg, transparent 0 32%, rgba(255, 255, 255, 0.22) 45%, transparent 58% 100%),
-        radial-gradient(circle at top left, rgba(255, 63, 215, 0.22), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(69, 214, 255, 0.18), transparent 34%);
+        linear-gradient(120deg, transparent 0 32%, rgba(255,255,255,0.22) 45%, transparent 58% 100%),
+        radial-gradient(circle at top left, rgba(255,63,215,0.22), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(69,214,255,0.18), transparent 34%);
       opacity: 0.75;
       transform: translateX(-45%);
       animation: cardShine 5.5s ease-in-out infinite;
@@ -207,30 +190,25 @@
     .card::after {
       content: "XMT";
       position: absolute;
-      right: -18px;
-      bottom: -30px;
-      color: rgba(255, 255, 255, 0.035);
+      right: -18px; bottom: -30px;
+      color: rgba(255,255,255,0.035);
       font-size: 8.5rem;
       font-weight: 900;
       letter-spacing: 6px;
       pointer-events: none;
     }
 
-    .card > * {
-      position: relative;
-      z-index: 1;
-    }
+    .card > * { position: relative; z-index: 1; }
 
     h1 {
       margin: 0 0 12px;
       font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: 0;
       text-transform: uppercase;
       background: linear-gradient(92deg, #fff 8%, #ffc8fb 38%, var(--accent-3) 78%, #fff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 0 28px rgba(255, 63, 215, 0.26);
+      text-shadow: 0 0 28px rgba(255,63,215,0.26);
       animation: titleGlow 3s ease-in-out infinite;
     }
 
@@ -247,10 +225,7 @@
       gap: 16px;
     }
 
-    form > div {
-      animation: fieldIn 0.65s ease both;
-    }
-
+    form > div { animation: fieldIn 0.65s ease both; }
     form > div:nth-child(1) { animation-delay: 0.08s; }
     form > div:nth-child(2) { animation-delay: 0.16s; }
     form > div:nth-child(3) { animation-delay: 0.24s; }
@@ -269,22 +244,89 @@
       width: 100%;
       padding: 13px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      background: rgba(8, 8, 15, 0.7);
+      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(8,8,15,0.7);
       color: var(--text);
       font-size: 1rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
       transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease, background 0.22s ease;
     }
 
     input:focus {
       outline: none;
-      border-color: rgba(69, 214, 255, 0.82);
-      background: rgba(12, 13, 24, 0.88);
-      box-shadow:
-        0 0 0 3px rgba(69, 214, 255, 0.14),
-        0 0 24px rgba(193, 59, 198, 0.28);
+      border-color: rgba(69,214,255,0.82);
+      background: rgba(12,13,24,0.88);
+      box-shadow: 0 0 0 3px rgba(69,214,255,0.14), 0 0 24px rgba(193,59,198,0.28);
       transform: translateY(-1px);
+    }
+
+    /* ── Platform selector ── */
+    .platform-selector {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .platform-option {
+      position: relative;
+    }
+
+    .platform-option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .platform-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      padding: 16px 12px;
+      border-radius: 14px;
+      border: 2px solid rgba(255,255,255,0.1);
+      background: rgba(8,8,15,0.7);
+      cursor: pointer;
+      transition: border-color 0.22s ease, background 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+      user-select: none;
+    }
+
+    .platform-card:hover {
+      border-color: rgba(255,255,255,0.3);
+      background: rgba(20,20,30,0.85);
+      transform: translateY(-1px);
+    }
+
+    .platform-option input[type="radio"]:checked + .platform-card {
+      border-color: rgba(69,214,255,0.9);
+      background: rgba(12,13,24,0.92);
+      box-shadow: 0 0 0 3px rgba(69,214,255,0.14), 0 0 24px rgba(193,59,198,0.28);
+    }
+
+    .platform-option input[type="radio"]:checked + .platform-card .platform-label {
+      color: #fff;
+    }
+
+    .platform-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--muted);
+      transition: color 0.22s ease;
+      letter-spacing: 1px;
+    }
+
+    /* PSN logo colors */
+    .platform-option:first-child input[type="radio"]:checked + .platform-card svg path,
+    .platform-option:first-child input[type="radio"]:checked + .platform-card svg rect,
+    .platform-option:first-child input[type="radio"]:checked + .platform-card svg circle {
+      fill: #fff;
+    }
+
+    /* Xbox logo colors */
+    .platform-option:last-child input[type="radio"]:checked + .platform-card svg path {
+      fill: #fff;
     }
 
     .actions {
@@ -303,7 +345,7 @@
       overflow: hidden;
       padding: 12px 20px;
       border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255,255,255,0.18);
       background: linear-gradient(90deg, var(--accent), var(--hot), var(--accent-3));
       background-size: 220% 100%;
       color: #fff;
@@ -311,7 +353,7 @@
       font-size: 0.95rem;
       text-decoration: none;
       cursor: pointer;
-      box-shadow: 0 14px 34px rgba(193, 59, 198, 0.28);
+      box-shadow: 0 14px 34px rgba(193,59,198,0.28);
       transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
       animation: buttonFlow 4s ease infinite;
     }
@@ -320,29 +362,17 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(115deg, transparent 0 34%, rgba(255, 255, 255, 0.34) 46%, transparent 58% 100%);
+      background: linear-gradient(115deg, transparent 0 34%, rgba(255,255,255,0.34) 46%, transparent 58% 100%);
       transform: translateX(-120%);
       transition: transform 0.55s ease;
     }
 
-    .btn:hover {
-      filter: brightness(1.08);
-      transform: translateY(-2px);
-      box-shadow: 0 18px 42px rgba(69, 214, 255, 0.24), 0 12px 34px rgba(255, 63, 215, 0.22);
-    }
-
-    .btn:hover::before {
-      transform: translateX(120%);
-    }
-
-    .btn:disabled {
-      cursor: wait;
-      opacity: 0.7;
-      transform: none;
-    }
+    .btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 18px 42px rgba(69,214,255,0.24), 0 12px 34px rgba(255,63,215,0.22); }
+    .btn:hover::before { transform: translateX(120%); }
+    .btn:disabled { cursor: wait; opacity: 0.7; transform: none; }
 
     .btn-secondary {
-      background: rgba(255, 255, 255, 0.06);
+      background: rgba(255,255,255,0.06);
       color: #e7e7f2;
       box-shadow: none;
     }
@@ -353,64 +383,58 @@
       color: var(--muted);
     }
 
-    .status.success {
-      color: var(--success);
-    }
+    .status.success { color: var(--success); }
+    .status.error { color: var(--error); }
 
-    .status.error {
-      color: var(--error);
+    /* field validation hints */
+    .field-hint {
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
     }
+    .field-hint.error { color: var(--error); display: block; }
+    .field-hint.success { color: var(--success); display: block; }
 
     @keyframes gridDrift {
       from { background-position: 0 0, 0 0; }
       to { background-position: 58px 58px, 58px 58px; }
     }
-
     @keyframes speedLines {
       0%, 100% { opacity: 0.18; transform: translateX(-20%); }
       50% { opacity: 0.46; transform: translateX(10%); }
     }
-
     @keyframes panelIn {
       from { opacity: 0; transform: translateY(22px) scale(0.98); }
       to { opacity: 1; transform: translateY(0) scale(1); }
     }
-
     @keyframes cardShine {
       0%, 58%, 100% { transform: translateX(-48%); opacity: 0.45; }
       72% { transform: translateX(40%); opacity: 0.9; }
     }
-
     @keyframes titleGlow {
-      0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 63, 215, 0.2)); }
-      50% { filter: drop-shadow(0 0 18px rgba(69, 214, 255, 0.32)); }
+      0%, 100% { filter: drop-shadow(0 0 8px rgba(255,63,215,0.2)); }
+      50% { filter: drop-shadow(0 0 18px rgba(69,214,255,0.32)); }
     }
-
     @keyframes fieldIn {
       from { transform: translateY(12px); }
       to { transform: translateY(0); }
     }
-
     @keyframes buttonFlow {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
     }
-
     @keyframes showroomMove {
       from { transform: scale(1.02) translate3d(-1.2%, -0.6%, 0); }
       to { transform: scale(1.08) translate3d(1.2%, 0.8%, 0); }
     }
-
     @keyframes roadRush {
       from { background-position: 0 0, 0 0; }
       to { background-position: -116px 0, 0 0; }
     }
-
     @keyframes horizonPulse {
       0%, 100% { opacity: 0.38; transform: scaleX(0.9); }
       50% { opacity: 0.9; transform: scaleX(1); }
     }
-
     @keyframes carLap {
       0% { transform: translateX(0) translateY(8px) scale(0.92); opacity: 0; }
       10% { opacity: 1; }
@@ -420,31 +444,16 @@
       72% { opacity: 0.75; }
       100% { transform: translateX(-260px) translateY(4px) scale(0.82) rotateY(180deg); opacity: 0; }
     }
-
-    @keyframes wheelSpin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes wheelSpin { to { transform: rotate(360deg); } }
 
     @media (max-width: 560px) {
-      .container {
-        padding: 34px 14px 44px;
-      }
-
-      .card {
-        padding: 24px 18px;
-        border-radius: 18px;
-      }
-
-      .actions,
-      .btn {
-        width: 100%;
-      }
+      .container { padding: 34px 14px 44px; }
+      .card { padding: 24px 18px; border-radius: 18px; }
+      .actions, .btn { width: 100%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
+      *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
@@ -453,36 +462,81 @@
   </style>
 </head>
 <body>
+  <div class="showroom-bg"></div>
+  <div class="race-scene">
+    <div class="race-car">
+      <div class="wheel front"></div>
+      <div class="wheel back"></div>
+    </div>
+  </div>
+
   <main class="container">
     <div class="card">
       <h1>Entrylist XMT</h1>
       <p>
-        Merci de remplir ce formulaire pour vous inscrire sur l’entrylist XMT et ainsi avoir la possibilité de s'inscrire aux évènement du serveur.  
+        Merci de remplir ce formulaire pour vous inscrire sur l'entrylist XMT et ainsi avoir la possibilité de s'inscrire aux évènements du serveur.
       </p>
 
       <form id="entryForm">
+
+        <!-- Plateforme -->
         <div>
-          <label for="gamertag">GamerTag (PSN/XBOX)</label>
-          <input id="gamertag" name="gamertag" type="text" required />
+          <label>Plateforme</label>
+          <div class="platform-selector">
+
+            <div class="platform-option">
+              <input type="radio" id="psn" name="platform" value="PSN" required />
+              <label for="psn" class="platform-card">
+                <!-- PSN logo -->
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M18.5 34V12.8c0 0 0.1-1.6 1.4-2.2 0.7-0.3 4.1-1.3 5.5 1.2 0.7 1.3 0.6 3 0.6 3V26.6l3.8-1.3V14.4c0 0 0.2-3.8-2.2-6.2-2.7-2.7-7.3-2.6-9.1-1.3V6H13v31l5.5-3z" fill="rgba(255,255,255,0.55)"/>
+                  <path d="M30.5 28.2l-12 4.2v3.8l12-4.1c1.7-0.6 3.5-1.9 3.5-4.1 0-2.2-1.8-3-3.5-2.6l-8.8 3.1V32l6.8-2.4c0.6-0.2 1.5-0.1 1.5 0.7s-1 1.5-1.5 1.7l-6.8 2.4v3.8l8.8-3.1c2.2-0.8 4.5-2.6 4.5-5.3 0-2.3-2.2-3.4-5-2.6z" fill="rgba(255,255,255,0.55)"/>
+                </svg>
+                <span class="platform-label">PSN</span>
+              </label>
+            </div>
+
+            <div class="platform-option">
+              <input type="radio" id="xbox" name="platform" value="XBOX" />
+              <label for="xbox" class="platform-card">
+                <!-- Xbox logo -->
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="24" cy="24" r="20" stroke="rgba(255,255,255,0.55)" stroke-width="2" fill="none"/>
+                  <path d="M14 14c0 0 3.5 1.5 10 8.5 6.5-7 10-8.5 10-8.5s-3-5-10-5-10 5-10 5z" fill="rgba(255,255,255,0.55)"/>
+                  <path d="M10.2 18c0 0-2.2 3-2.2 6 0 5.5 3.5 10 8.5 12-0.2-0.2-6.3-8-6.3-18z" fill="rgba(255,255,255,0.55)"/>
+                  <path d="M37.8 18c0 10-6.1 17.8-6.3 18 5-2 8.5-6.5 8.5-12 0-3-2.2-6-2.2-6z" fill="rgba(255,255,255,0.55)"/>
+                  <path d="M24 23c-6.5 7.5-9.5 13-9.5 13s2.5 3 9.5 3 9.5-3 9.5-3-3-5.5-9.5-13z" fill="rgba(255,255,255,0.55)"/>
+                </svg>
+                <span class="platform-label">XBOX</span>
+              </label>
+            </div>
+
+          </div>
+          <div id="platformHint" class="field-hint"></div>
         </div>
 
+        <!-- Pseudo -->
         <div>
           <label for="pseudo">Pseudo (Affiché en jeu)</label>
-          <input id="pseudo" name="pseudo" type="text" required />
+          <input id="pseudo" name="pseudo" type="text" required autocomplete="off" />
+          <div id="pseudoHint" class="field-hint"></div>
         </div>
 
+        <!-- ID -->
         <div>
           <label for="id">ID</label>
-          <input id="id" name="id" type="text" required />
+          <input id="id" name="id" type="text" required autocomplete="off" />
         </div>
 
+        <!-- N° Pilote -->
         <div>
           <label for="numeroPilote">N° Pilote</label>
-          <input id="numeroPilote" name="numeroPilote" type="number" min="0" required />
+          <input id="numeroPilote" name="numeroPilote" type="number" min="0" max="999" required />
+          <div id="numeroHint" class="field-hint"></div>
         </div>
 
         <div class="actions">
-          <button type="submit" class="btn">Envoyer mon entrylist</button>
+          <button type="submit" class="btn" id="submitBtn">Envoyer mon entrylist</button>
           <a href="entrylist_liste.html" class="btn btn-secondary">Liste complète</a>
         </div>
 
@@ -492,39 +546,158 @@
   </main>
 
   <script>
-    // URL de ton Apps Script Web App (déploiement doPost)
     const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxTILGoua3WpneTTlu1r06tE5_aJeJvfam6XYk4rSWklXsgnNYIpr8NFui87-AObu_3cg/exec";
 
     const form = document.getElementById("entryForm");
     const statusEl = document.getElementById("status");
-    const submitButton = form.querySelector('button[type="submit"]');
+    const submitBtn = document.getElementById("submitBtn");
+    const pseudoHint = document.getElementById("pseudoHint");
+    const numeroHint = document.getElementById("numeroHint");
+    const platformHint = document.getElementById("platformHint");
+
+    // Fetch existing list to check duplicates
+    async function fetchExistingList() {
+      // Try direct fetch first
+      try {
+        const res = await fetch(WEB_APP_URL + "?action=list");
+        if (res.ok) {
+          const json = await res.json();
+          return normalizeList(json);
+        }
+      } catch (_) {}
+
+      // Fallback: JSONP
+      return new Promise((resolve) => {
+        const cb = "xmtChk_" + Date.now();
+        const script = document.createElement("script");
+        const timer = setTimeout(() => {
+          delete window[cb];
+          script.remove();
+          resolve([]);
+        }, 8000);
+        window[cb] = (data) => {
+          clearTimeout(timer);
+          delete window[cb];
+          script.remove();
+          resolve(normalizeList(data));
+        };
+        script.src = WEB_APP_URL + "?action=list&callback=" + cb;
+        document.head.appendChild(script);
+      });
+    }
+
+    function normalizeList(raw) {
+      if (!raw) return [];
+      const rows = Array.isArray(raw.data) ? raw.data : (Array.isArray(raw) ? raw : []);
+      return rows.map(r => {
+        if (Array.isArray(r)) {
+          // [timestamp, pseudo, id, numero, points]
+          return { pseudo: (r[1] || "").toString().toLowerCase(), numero: (r[3] || "").toString() };
+        }
+        return {
+          pseudo: (r.pseudo || r.nom || r.pilote || "").toString().toLowerCase(),
+          numero: (r.numero || r.num || "").toString()
+        };
+      });
+    }
+
+    // Real-time duplicate hints on blur
+    let cachedList = null;
+
+    async function getList() {
+      if (!cachedList) cachedList = fetchExistingList();
+      return cachedList;
+    }
+
+    document.getElementById("pseudo").addEventListener("blur", async () => {
+      const val = document.getElementById("pseudo").value.trim().toLowerCase();
+      if (!val) return;
+      const list = await getList();
+      if (list.some(r => r.pseudo === val)) {
+        pseudoHint.textContent = "Ce pseudo est déjà utilisé.";
+        pseudoHint.className = "field-hint error";
+      } else {
+        pseudoHint.textContent = "Pseudo disponible.";
+        pseudoHint.className = "field-hint success";
+      }
+    });
+
+    document.getElementById("numeroPilote").addEventListener("blur", async () => {
+      const val = document.getElementById("numeroPilote").value.trim();
+      if (!val) return;
+      const list = await getList();
+      if (list.some(r => r.numero === val)) {
+        numeroHint.textContent = "Ce numéro de pilote est déjà utilisé.";
+        numeroHint.className = "field-hint error";
+      } else {
+        numeroHint.textContent = "Numéro disponible.";
+        numeroHint.className = "field-hint success";
+      }
+    });
 
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const data = {
-        gamertag: form.gamertag.value.trim(),
-        pseudo: form.pseudo.value.trim(),
-        id: form.id.value.trim(),
-        numeroPilote: form.numeroPilote.value.trim()
-      };
+      const platform = form.querySelector('input[name="platform"]:checked');
+      const pseudo = document.getElementById("pseudo").value.trim();
+      const idRaw = document.getElementById("id").value.trim();
+      const numeroPilote = document.getElementById("numeroPilote").value.trim();
 
-      if (!data.gamertag || !data.pseudo || !data.id || !data.numeroPilote) {
+      // Basic validation
+      if (!platform) {
+        platformHint.textContent = "Veuillez choisir une plateforme.";
+        platformHint.className = "field-hint error";
+        return;
+      }
+      platformHint.className = "field-hint";
+
+      if (!pseudo || !idRaw || !numeroPilote) {
         statusEl.textContent = "Merci de remplir tous les champs.";
         statusEl.className = "status error";
         return;
       }
 
-      statusEl.textContent = "Envoi en cours...";
+      statusEl.textContent = "Vérification en cours...";
       statusEl.className = "status";
-      submitButton.disabled = true;
+      submitBtn.disabled = true;
+
+      // Check duplicates
+      let list = [];
+      try {
+        list = await getList();
+      } catch (_) {}
+
+      const pseudoLower = pseudo.toLowerCase();
+      if (list.some(r => r.pseudo === pseudoLower)) {
+        statusEl.textContent = "Ce pseudo est déjà utilisé. Veuillez en choisir un autre.";
+        statusEl.className = "status error";
+        pseudoHint.textContent = "Ce pseudo est déjà utilisé.";
+        pseudoHint.className = "field-hint error";
+        submitBtn.disabled = false;
+        return;
+      }
+
+      if (list.some(r => r.numero === numeroPilote)) {
+        statusEl.textContent = "Ce numéro de pilote est déjà utilisé. Veuillez en choisir un autre.";
+        statusEl.className = "status error";
+        numeroHint.textContent = "Ce numéro de pilote est déjà utilisé.";
+        numeroHint.className = "field-hint error";
+        submitBtn.disabled = false;
+        return;
+      }
+
+      // Prefix ID based on platform
+      const prefix = platform.value === "PSN" ? "P" : "M";
+      const idFinal = prefix + idRaw;
+
+      statusEl.textContent = "Envoi en cours...";
 
       const formData = new FormData();
       formData.append("action", "add");
-      formData.append("gamertag", data.gamertag);
-      formData.append("pseudo", data.pseudo);
-      formData.append("id", data.id);
-      formData.append("numeroPilote", data.numeroPilote);
+      formData.append("pseudo", pseudo);
+      formData.append("id", idFinal);
+      formData.append("numeroPilote", numeroPilote);
+      formData.append("pointsLicence", "10");
 
       try {
         await fetch(WEB_APP_URL, {
@@ -533,17 +706,19 @@
           body: formData
         });
 
-        statusEl.textContent = "Entrylist envoyé !";
+        statusEl.textContent = "Entrylist envoyé avec succès !";
         statusEl.className = "status success";
-
         form.reset();
+        pseudoHint.className = "field-hint";
+        numeroHint.className = "field-hint";
+        cachedList = null; // reset cache after new entry
 
       } catch (error) {
         console.error(error);
         statusEl.textContent = "Erreur lors de l'envoi. Merci de réessayer.";
         statusEl.className = "status error";
       } finally {
-        submitButton.disabled = false;
+        submitBtn.disabled = false;
       }
     });
   </script>
