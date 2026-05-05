@@ -463,15 +463,125 @@
       .race-scene { display: none; }
     }
 
+    /* ══ LOGO ENTRANCE ══ */
+    .logo-img { animation: logoIn 0.9s cubic-bezier(.2,1.3,.4,1) 0.2s both; }
+    @keyframes logoIn {
+      0%   { opacity:0; transform:scale(0.2) rotate(-20deg); filter:brightness(12) drop-shadow(0 0 40px #fff); }
+      55%  { opacity:1; transform:scale(1.1) rotate(4deg);  filter:brightness(2)  drop-shadow(0 0 20px rgba(192,0,74,0.9)); }
+      100% { opacity:1; transform:scale(1)   rotate(0deg);  filter:drop-shadow(0 0 10px rgba(193,59,198,0.5)); }
+    }
+
+    /* ══ FLASH OVERLAY ══ */
+    #flashOverlay {
+      position:fixed; inset:0; z-index:200; pointer-events:none;
+      background:white;
+      animation:flashFade 0.9s ease-out forwards;
+    }
+    @keyframes flashFade {
+      0%   { opacity:0.85; }
+      40%  { opacity:0.3; }
+      100% { opacity:0; visibility:hidden; }
+    }
+
+    /* ══ THEME TOGGLE ══ */
+    .theme-toggle {
+      position:fixed; top:14px; right:14px; z-index:50;
+      width:40px; height:40px; border-radius:50%;
+      border:1px solid rgba(255,255,255,0.15);
+      background:rgba(18,12,22,0.88);
+      backdrop-filter:blur(10px);
+      color:#fff; font-size:1rem; cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 4px 16px rgba(0,0,0,0.35);
+      transition:transform 0.22s, box-shadow 0.22s;
+      user-select:none; -webkit-user-select:none;
+    }
+    .theme-toggle:hover { transform:scale(1.12); box-shadow:0 6px 22px rgba(192,0,74,0.35); }
+
+    /* ══ LIGHT MODE ══ */
+    body.light-mode {
+      --text:#18080e; --muted:#5a3a48; --border:rgba(0,0,0,0.12);
+      background: linear-gradient(180deg,rgba(255,240,245,0.96),rgba(245,230,238,0.98)),
+        url("xmt-gt3-showroom.png") center/cover fixed no-repeat;
+    }
+    body.light-mode .card {
+      background:linear-gradient(145deg,rgba(255,250,253,0.97),rgba(248,235,242,0.95));
+      border-color:rgba(192,0,74,0.2);
+    }
+    body.light-mode input {
+      background:rgba(245,235,240,0.9); color:#18080e;
+      border-color:rgba(192,0,74,0.2);
+    }
+    body.light-mode .platform-card {
+      background:rgba(245,235,240,0.85);
+      border-color:rgba(192,0,74,0.15);
+    }
+    body.light-mode h1 { background:linear-gradient(92deg,#3a0020 5%,#8a003a 40%,#c0004a 76%,#3a0020 100%); -webkit-background-clip:text; background-clip:text; }
+    body.light-mode .subtitle { color:#5a3a48; }
+    body.light-mode .showroom-bg { opacity:0.25; }
+    body.light-mode .theme-toggle { background:rgba(255,245,250,0.92); color:#18080e; border-color:rgba(192,0,74,0.25); }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
       }
     }
+
+    /* ══ CONFETTI ══ */
+    #confettiCanvas { display:none; position:fixed; inset:0; width:100%; height:100%; pointer-events:none; z-index:9999; }
+
+    /* ══ FLAG OVERLAY ══ */
+    #flagOverlay {
+      display:none; position:fixed; inset:0; z-index:10000; pointer-events:none;
+      align-items:center; justify-content:center; flex-direction:column; gap:18px;
+      background:rgba(0,0,0,0.45); backdrop-filter:blur(2px);
+    }
+    #flagOverlay.show { display:flex; animation:overlayIn 0.35s ease both; }
+    #flagOverlay.hide { animation:overlayOut 0.6s ease both; }
+    @keyframes overlayIn  { from{opacity:0} to{opacity:1} }
+    @keyframes overlayOut { from{opacity:1} to{opacity:0} }
+    .flag-pole { display:flex; align-items:flex-start; }
+    .flag-stick { width:6px; height:160px; background:linear-gradient(180deg,#e0e0e0,#888); border-radius:3px 3px 2px 2px; flex-shrink:0; }
+    .flag-cloth {
+      width:130px; height:90px; margin-top:2px;
+      background-image: repeating-conic-gradient(#111 0% 25%, #fff 0% 50%);
+      background-size: 22px 22px;
+      transform-origin:left center;
+      animation:flagWave 0.45s ease-in-out infinite alternate;
+      box-shadow:2px 2px 8px rgba(0,0,0,0.5);
+    }
+    .flag-label {
+      color:#fff; font-size:2.2rem; font-weight:900; letter-spacing:6px;
+      text-shadow:0 0 24px rgba(192,0,74,0.9), 0 2px 10px rgba(0,0,0,0.8);
+      animation:labelPop 0.5s cubic-bezier(.2,1.4,.4,1) 0.25s both;
+    }
+    @keyframes flagWave {
+      from { transform:perspective(200px) rotateY(-8deg) skewY(-2deg); }
+      to   { transform:perspective(200px) rotateY(8deg)  skewY(2deg); }
+    }
+    @keyframes labelPop {
+      from { transform:scale(0.4) translateY(20px); opacity:0; }
+      to   { transform:scale(1) translateY(0); opacity:1; }
+    }
+    @keyframes successFlagWave {
+      0%,100% { transform:scale(1.1) rotate(-8deg); }
+      50%      { transform:scale(1.2) rotate(8deg); }
+    }
+    #successFlagEmoji { animation:successPop 0.6s cubic-bezier(.2,1.4,.4,1) both, successFlagWave 0.8s ease-in-out 0.7s infinite; display:inline-block; }
   </style>
 </head>
 <body>
+  <div id="flashOverlay"></div>
+  <button class="theme-toggle" id="themeToggle" title="Mode clair/sombre">🌙</button>
+  <canvas id="confettiCanvas"></canvas>
+  <div id="flagOverlay">
+    <div class="flag-pole">
+      <div class="flag-stick"></div>
+      <div class="flag-cloth"></div>
+    </div>
+    <div class="flag-label">ARRIVÉE !</div>
+  </div>
   <div class="showroom-bg"></div>
   <div class="race-scene">
     <div class="race-car">
@@ -482,7 +592,7 @@
 
   <main class="container">
     <div class="card">
-      <img src="xmt-logo.png" alt="XMT" style="height:56px;width:auto;mix-blend-mode:screen;filter:drop-shadow(0 0 10px rgba(193,59,198,0.5));margin-bottom:10px;display:block;" />
+      <img src="xmt-logo.png" alt="XMT" class="logo-img" style="height:56px;width:auto;mix-blend-mode:screen;filter:drop-shadow(0 0 10px rgba(193,59,198,0.5));margin-bottom:10px;display:block;" />
       <h1>Entrylist XMT</h1>
       <p class="subtitle">
         Remplissez ce formulaire pour vous inscrire sur l'entrylist XMT et participer aux évènements du serveur.
@@ -549,7 +659,7 @@
 
       <!-- Écran de confirmation (caché par défaut) -->
       <div id="successScreen" style="display:none; text-align:center; padding: 12px 0;">
-        <div style="font-size:3rem; margin-bottom:12px; animation: successPop 0.6s cubic-bezier(.2,1.4,.4,1) both;">🏁</div>
+        <div style="font-size:3.5rem; margin-bottom:12px;"><span id="successFlagEmoji">🏁</span></div>
         <h2 style="font-size:1.4rem; margin-bottom:8px; background:linear-gradient(92deg,#fff,#8cffb1); -webkit-background-clip:text; background-clip:text; color:transparent;">Entrylist enregistrée !</h2>
         <p style="color:var(--muted); font-size:0.9rem; margin-bottom:6px;">Bienvenue sur la grille, <strong id="confirmedPseudo" style="color:#fff;"></strong> !</p>
         <p style="color:var(--muted); font-size:0.85rem; margin-bottom:22px;">N° Pilote : <strong id="confirmedNumero" style="color:var(--accent-3);"></strong></p>
@@ -582,11 +692,12 @@
       return false;
     }
 
-    function showSuccess(pseudo, numero) {
+    function showSuccess(pseudo, numero, celebrate) {
       form.style.display = "none";
       document.getElementById("confirmedPseudo").textContent = pseudo;
       document.getElementById("confirmedNumero").textContent = numero;
       successScreen.style.display = "block";
+      if (celebrate) { launchConfetti(); showFlagOverlay(); }
     }
 
     // Vérification au chargement
@@ -719,7 +830,7 @@
         try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ pseudo, numero: numeroPilote, time: Date.now() })); } catch (_) {}
 
         // Afficher l'écran de succès
-        showSuccess(pseudo, numeroPilote);
+        showSuccess(pseudo, numeroPilote, true);
 
       } catch (err) {
         console.error(err);
@@ -729,6 +840,101 @@
         submitBtn.disabled = false;
       }
     });
+
+    // ── Theme toggle ──
+    const themeBtn = document.getElementById("themeToggle");
+    const THEME_KEY = "xmt_theme";
+    function applyTheme(mode) {
+      if (mode === "light") { document.body.classList.add("light-mode"); themeBtn.textContent = "🌙"; }
+      else { document.body.classList.remove("light-mode"); themeBtn.textContent = "☀️"; }
+    }
+    applyTheme(localStorage.getItem(THEME_KEY) || "dark");
+    themeBtn.addEventListener("click", () => {
+      const next = document.body.classList.contains("light-mode") ? "dark" : "light";
+      localStorage.setItem(THEME_KEY, next);
+      applyTheme(next);
+    });
+
+    // ── Animated favicon ──
+    (function animateFavicon() {
+      const canvas = document.createElement("canvas");
+      canvas.width = 32; canvas.height = 32;
+      const ctx = canvas.getContext("2d");
+      let tick = 0;
+      const fav = document.querySelector('link[rel="icon"]') || (() => { const l = document.createElement("link"); l.rel="icon"; l.type="image/png"; document.head.appendChild(l); return l; })();
+      const cols = ["#c0004a","#a80035","#8a0f8f","#a80035","#c0004a"];
+      setInterval(() => {
+        tick++;
+        const col = cols[tick % cols.length];
+        ctx.clearRect(0,0,32,32);
+        ctx.fillStyle="#0b0b0f"; ctx.beginPath(); ctx.roundRect(0,0,32,32,7); ctx.fill();
+        ctx.strokeStyle=col; ctx.lineWidth=2.5; ctx.beginPath(); ctx.roundRect(1.5,1.5,29,29,6); ctx.stroke();
+        ctx.fillStyle="#fff"; ctx.font="bold 9px Arial"; ctx.textAlign="center"; ctx.textBaseline="middle"; ctx.fillText("XMT",16,16);
+        fav.href = canvas.toDataURL("image/png");
+      }, 400);
+    })();
+
+    // ── Confetti ──
+    function launchConfetti() {
+      const canvas = document.getElementById("confettiCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      canvas.style.display = "block";
+      const colors = ["#c0004a","#a80035","#920080","#ffffff","#f4f4f7","#6b006e","#ff6090","#8cffb1"];
+      const pieces = Array.from({length: 140}, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height * -1 - 20,
+        w: Math.random() * 10 + 5,
+        h: Math.random() * 6 + 3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speed: Math.random() * 3 + 2,
+        angle: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.18,
+        swayAmp: Math.random() * 2 + 0.5,
+        swayFreq: Math.random() * 0.05 + 0.02,
+        tick: Math.random() * Math.PI * 2
+      }));
+      let startTime = null;
+      const duration = 5000;
+      function draw(ts) {
+        if (!startTime) startTime = ts;
+        const elapsed = ts - startTime;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let active = false;
+        pieces.forEach(p => {
+          p.tick += p.swayFreq;
+          p.y += p.speed;
+          p.x += Math.sin(p.tick) * p.swayAmp;
+          p.angle += p.spin;
+          if (p.y < canvas.height + 30) active = true;
+          const alpha = elapsed > duration - 1200 ? Math.max(0, (duration - elapsed) / 1200) : 1;
+          ctx.save();
+          ctx.globalAlpha = alpha;
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.angle);
+          ctx.fillStyle = p.color;
+          ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+          ctx.restore();
+        });
+        if (active && elapsed < duration) requestAnimationFrame(draw);
+        else { canvas.style.display = "none"; ctx.clearRect(0,0,canvas.width,canvas.height); }
+      }
+      requestAnimationFrame(draw);
+    }
+
+    // ── Flag overlay ──
+    function showFlagOverlay() {
+      const overlay = document.getElementById("flagOverlay");
+      if (!overlay) return;
+      overlay.classList.remove("hide");
+      overlay.classList.add("show");
+      setTimeout(() => {
+        overlay.classList.add("hide");
+        setTimeout(() => { overlay.classList.remove("show","hide"); }, 600);
+      }, 2800);
+    }
   </script>
   <style>
     @keyframes successPop {
