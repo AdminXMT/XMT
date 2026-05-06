@@ -585,7 +585,9 @@
         }
       } catch (_) {}
 
-      const idFinal = (platform.value === "PSN" ? "P" : "M") + idRaw;
+      const prefix = platform.value === "PSN" ? "P" : "M";
+      const cleanId = idRaw.trim().toUpperCase().replace(/^[PM]/, "");
+      const idFinal = prefix + cleanId;
       statusEl.textContent = "Envoi en cours...";
 
       const formData = new FormData();
